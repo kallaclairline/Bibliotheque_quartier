@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Bibliothèque</title>
+    <link rel="stylesheet" href="css/styl.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <h1>Gestion d'une bliothèque de quartier</h1>
+        <nav>
+            <a href="#" data-section ="accueil">Acceuil</a>
+            <a href="#" data-section ="dashboard">Tableau de bord</a>
+            <a href="#" data-section ="livres">Livres</a>
+            <a href="#" data-section ="auteurs">Auteurs</a>
+            <a href="#" data-section ="adherents">Adhérents</a>
+            <a href="#" data-section ="emprunts">Emprunts</a>
+        </nav>
+    </header>
+    <main>
+    <!-- ACCUEIL -->
+<section id="accueil">
+    <div class="accueil-contenu">
+        <svg class="accueil-illustration" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="120" width="160" height="12" rx="2" fill="#1a2744"/>
+            <rect x="30" y="90" width="60" height="30" rx="2" fill="#2563eb"/>
+            <rect x="35" y="95" width="50" height="4" fill="#ffffff" opacity="0.6"/>
+            <rect x="35" y="103" width="50" height="4" fill="#ffffff" opacity="0.6"/>
+            <rect x="100" y="75" width="55" height="45" rx="2" fill="#16a34a"/>
+            <rect x="106" y="82" width="43" height="4" fill="#ffffff" opacity="0.6"/>
+            <rect x="106" y="90" width="43" height="4" fill="#ffffff" opacity="0.6"/>
+            <rect x="106" y="98" width="43" height="4" fill="#ffffff" opacity="0.6"/>
+            <path d="M75 60 Q75 45 95 45 Q115 45 115 60 L115 90 Q100 78 75 90 Z" fill="#d97706"/>
+        </svg>
+        <h2>Bienvenue sur votre bibliothèque</h2>
+        <p>Gérez vos livres, vos adhérents et vos emprunts en toute simplicité.</p>
+    </div>
+</section>
+
+         <!-- TABLEAU DE BORD  -->
+        <section id="dashboard">
+            <h2>Tableau de bord</h2>
+            <p>Vu enssemble de votre bibliothèque</p>
+            <div class="statistiques">
+                <div class="statistique">
+                    <h3>Total des livres</h3>
+                    <p id="total-livres">0</p>
+                </div>
+                <div class="statistique">
+                    <h3>Total des adhérents</h3>
+                    <p id="total-adherents">0</p>
+                </div>
+                <div class="statistique">
+                    <h3>Emprunts en cours</h3>
+                    <p id="total-emprunts">0</p>
+                </div>
+                <div class="statistique">
+                    <h3>Emprunts en retard</h3>
+                    <p id="total-retards">0</p>
+                </div>
+            </div>
+            <div class="statistique-speciale">
+                <h3>Livre le plus emprunté</h3>
+                <p id="livre-plus-emprunte">-</p>
+            </div>
+            <div class="statistique-speciale">
+                <h3>Adhérent le plus actif</h3>
+                <p id="adherent-plus-actif">-</p>
+            </div>
+        </section>
+
+        <!--  LIVRES : Formulaire livre -->
+        <section id="livres">
+            <h2>Gestion des livres</h2>
+            <p>Consulter, ajouter, modiffier ou supprimer les livres de la bibliothèque</p>
+            <form id="form-livre">
+                <input type="hidden" id="id-livre">
+                <label for="titre">Titre :</label>
+                <input type="text" id="titre" required>
+                <label for="auteur-livre">Auteur :</label>
+                <select id="auteur-livre" required>
+                    <option value="">-- Choisir un auteur --</option>
+                </select>
+                <label for="annee-publication">Année de publication :</label>
+                <input type="number" id="annee-publication">
+                <button type="submit">Ajouter le livre</button>
+                <p id="message-livre"></p>
+            </form>
+
+            <!-- Recherche -->
+            <div class="recherche">
+                <input type="text" id="recherche-livre" placeholder="Rechercher par titre...">
+                <input type="text" id="recherche-auteur" placeholder="Rechercher par auteur...">
+                <button id="btn-rechercher-livre">Rechercher</button>
+            </div>
+
+            <!-- Liste des livres -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Année</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="liste-livres">
+                    <!-- Les livres seront ajoutés avec JavaScript -->
+                </tbody>
+            </table>
+            <div id="pagination-livres">
+    <button id="btn-precedent-livre">← Précédent</button>
+    <span id="page-livre">Page 1 / 1</span>
+    <button id="btn-suivant-livre">Suivant →</button>
+</div>
+        </section>
+
+        <!-- AUTEURS : Gestion des auteurs -->
+<section id="auteurs">
+    <h2>Gestion des auteurs</h2>
+    <form id="form-auteur">
+        <input type="hidden" id="id-auteur">
+
+        <label for="nom-auteur">Nom :</label>
+        <input type="text" id="nom-auteur" required>
+
+        <label for="nationalite-auteur">Nationalité :</label>
+        <input type="text" id="nationalite-auteur" required>
+
+        <button type="submit">Ajouter l'auteur</button>
+
+        <p id="message-auteur"></p>
+    </form>
+    <h3>Liste des auteurs</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Nationalité</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="liste-auteurs">
+        </tbody>
+    </table>
+</section>
+
+        <!--  ADHÉRENTS -->
+        <section id="adherents">
+            <h2>Gestion des adhérents</h2>
+            <p>Consulter et Gérez les Adhérents inscrits a la bibliothèque</p>
+            <form id="form-adherent">
+                <input type="hidden" id="id-adherent">
+                <label for="nom-adherent">Nom :</label>
+                <input type="text" id="nom-adherent" required>
+                <label for="contact-adherent">Contact :</label>
+                <input type="text" id="contact-adherent" required>
+                <button type="submit"> Ajouter l'adhérent</button>
+                <p id="message-adherent"></p>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Contact</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="liste-adherents">
+                    <!-- Les adhérents seront ajoutés avec JavaScript -->
+                </tbody>
+            </table>
+            <div id="historique-adherent">
+            <h3>Historique des emprunts</h3>
+           <p id="nom-adherent-historique">Sélectionnez un adhérent.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Livre</th>
+                <th>Date d'emprunt</th>
+                <th>Date de retour prévue</th>
+                <th>Date de retour effective</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody id="liste-historique-adherent">
+        </tbody>
+    </table>
+</div>
+        </section>
+
+        <!--  EMPRUNTS  -->
+        <section id="emprunts">
+            <h2>Gestion des emprunts</h2>
+            <p>Enregistrer un emprunt de livre</p>
+            <form id="form-emprunt">
+                <label for="adherent-emprunt">Adhérent:</label>
+                <select id="adherent-emprunt" required>
+                    <option value="">-- Choisir un adhérent --</option>
+                </select>
+                <label for="livre-emprunt">Livre:</label>
+                <select id="livre-emprunt" required>
+                    <option value="">-- Choisir un livre --</option>
+                </select>
+                <label for="date-retour">Date de retour prévue: </label>
+                <input type="date" id="date-retour" required>
+                <button type="submit">Enregistrer l'emprunt</button>
+                <p id="message-emprunt"></p>
+            </form>
+
+            <!-- Emprunts en cours -->
+            <h3>Emprunts en cours</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Adhérent</th>
+                        <th>Livre</th>
+                        <th>Date d'emprunt</th>
+                        <th>Date de retour prévu</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="liste-emprunts">
+                    <!-- Emprunts ajoutés avec JavaScript -->
+                </tbody>
+            </table>
+
+            <!-- Emprunts en retard -->
+            <h3>Emprunts en retard</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Adhérent</th>
+                        <th>Livre</th>
+                        <th>Date d'emprunt</th>
+                        <th>Dte de retour prévu</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="liste-retards">
+                    <!-- Retards ajoutés avec JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>

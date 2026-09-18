@@ -1,0 +1,322 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/*   EN-TÊTE */
+header {
+    background-color: #1a2744;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* CONTENU PRINCIPAL*/
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    margin-bottom: 20px;
+    color: #1a2744;
+    font-size: 26px;
+    text-align: center;
+}
+section p {
+   color: #555;
+    font-size: 16px;
+    text-align: center;
+}
+
+section h3 {
+    margin: 25px 0 15px;
+}
+/* PAGE D'ACCUEIL */
+
+#accueil {
+    text-align: center;
+    padding: 60px 20px;
+}
+.accueil-contenu {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.accueil-illustration {
+    width: 200px;
+    height: 160px;
+    margin-bottom: 25px;
+}
+#accueil h2 {
+    color: #1a2744;
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+#accueil p {
+    color: #555;
+    font-size: 16px;
+}
+
+/* STATISTIQUES */
+
+.statistiques {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.statistique {
+    background-color: #eef5f1;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+.statistique h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+.statistique p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1a2744;
+}
+
+/* Une couleur différente pour chacune des 4 cartes, dans l'ordre où elles apparaissent */
+.statistique:nth-child(1) {
+    background-color: #dbeafe;
+}
+.statistique:nth-child(1) p {
+    color: #2563eb;
+}
+.statistique:nth-child(2) {
+    background-color: #dcfce7;
+}
+.statistique:nth-child(2) p {
+    color: #16a34a;
+}
+.statistique:nth-child(3) {
+    background-color: #fef3c7;
+}
+.statistique:nth-child(3) p {
+    color: #d97706;
+}
+.statistique:nth-child(4) {
+    background-color: #fee2e2;
+}
+.statistique:nth-child(4) p {
+    color: #dc2626;
+}
+.statistique-speciale{
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    box-sizing: border-box;
+    background-color: #eef5f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-top: 25px;
+    margin-bottom: 20px;    
+}
+.statistique-speciale:first-of-type {
+    margin-right: 4%;
+    background-color: #ede9fe;
+}
+.statistique-speciale:first-of-type p {
+    color: #7c3aed;
+}
+
+.statistique-speciale:last-of-type {
+    background-color: #fce7f3;
+}
+
+.statistique-speciale:last-of-type p {
+    color: #db2777;
+}
+.statistique-speciale h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: #1a2744;
+}
+.statistique-speciale p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .statistique-speciale {
+        display: block;
+        width: 100%;
+        margin-right: 0 !important;
+    }
+}
+
+/*  FORMULAIRES*/
+
+form {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+label {
+    font-weight: bold;
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+button {
+    width: fit-content;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1a2744;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #12203a;
+}
+
+
+/* RECHERCHE */
+
+.recherche {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.recherche input {
+    flex: 1;
+}
+
+/* TABLEAUX */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #1a2744;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+
+/* BADGES DE STATUT*/
+.statut {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.statut-disponible, .statut-retourne {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.statut-emprunte, .statut-en-cours {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.statut-retard {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* MESSAGES */
+
+#message-livre,
+#message-adherent,
+#message-emprunt {
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .statistiques {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .recherche {
+        flex-direction: column;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        width: 95%;
+    }
+    section {
+        padding: 15px;
+    }
+
+    .statistiques {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
