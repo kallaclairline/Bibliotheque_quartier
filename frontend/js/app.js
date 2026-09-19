@@ -1,9 +1,9 @@
-const API_URL = "https://bibliotheque-quartier.onrender.com/api";
+const API_URL = "https://bibliotheque-quartier-gestion.onrender.com/api";
 let pageLivre = 1;
 const limiteLivre = 10;
 let totalPagesLivre = 1;
 // AFFICHER LES LIVRES AVEC PAGINATION
-async function afficherLivres() {
+async function afficherLivres() { 
     try {
         const response = await fetch(`${API_URL}/livres?page=${pageLivre}&limite=${limiteLivre}`);
         if (!response.ok) {
