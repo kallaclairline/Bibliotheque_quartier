@@ -745,6 +745,7 @@ async function afficherRetards() {
         listeRetards.innerHTML = "";
         retards.forEach(emprunt => {
             const ligne = document.createElement("tr");
+            ligne.classList.add("statut-retard");
 
             ligne.innerHTML = `<td>${emprunt.nom_adherent}</td>
                 <td>${emprunt.titre_livre}</td>

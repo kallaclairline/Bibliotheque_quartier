@@ -70,7 +70,7 @@ const obtenirEmpruntsParAdherent = async (req, res) => {
          await client.query('BEGIN');
 
          // premiere etape: verifier que le livre existe et est disponible
-         const livre = await client.query('SELECT * FROM livres WHERE id_livre = $1', [id_livre]);
+         const livre = await client.query('SELECT * FROM livres WHERE id_livre = $1 FOR UPDATE', [id_livre]);
          if(livre.rows.length == 0 ){
             await client.query('ROLLBACK');
             client.release();
@@ -79,7 +79,7 @@ const obtenirEmpruntsParAdherent = async (req, res) => {
          if(livre.rows[0].statut == 'emprunte' ){
             await client.query('ROLLBACK');
             client.release();
-             return res.status(400).json({error:" Ce livre est deja emprunte"}); 
+             return res.status(409).json({error:" Ce livre est deja emprunte"}); 
          }
          // deuxieme etape : creer l'emprunt
          const nouvelEmprunt = await client.query('INSERT INTO emprunts (id_adherent, id_livre, date_retour_prevue) VALUES ($1, $2, $3) RETURNING *', [id_adherent, id_livre, date_retour_prevue]);

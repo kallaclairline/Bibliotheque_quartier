@@ -86,8 +86,11 @@ Bibliotheque_quartier/
 │   ├── js/
 │   │   └── app.js
 │   └── index.html
+│ 
 │
-├── diagramme-er.png
+├── docs/
+│   └── diagramme-er.png
+│    
 └── README.md
 
 
